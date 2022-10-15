@@ -1,27 +1,62 @@
 public class atributs {
     public static void main(String args[]){
-        Pet pet = new Pet();
-        pet.type = "кот";
-        pet.age = 45;
+        Pet.Builder newPet = new Pet.Builder()
+            .withColor(null)
+            .withType("Cat")
+            .withName("Eva")
+            .withAge(6)
+            .withEyes(null)
+            .withLength(0);
 
-        Pet pet2 = new Pet();
-        pet2.type = "dog";
-        pet2.age = 5;
-        pet2.color = "black";
-        pet.eyes = "brown";
-        pet2.height = 40;
-        pet2.weight = 102;
-        pet2.name = "Kevin";
     }    
 }
 class Pet{
-    String type;
-    String name;
-    double weight;
-    String eyes;
-    int age;
-    String color;
-    double length;
-    double height;
+   private String type;
+   private String name;
+   private double weight;
+   private String eyes;
+   private int age;
+   private String color;
+   private double length;
+   private double height;
 
+   public static class Builder {
+    private Pet newPet;
+
+    public Builder() {
+        newPet = new Pet();
+    }
+    public Builder withType(String type){
+        newPet.type = type;
+        return this;
+    }
+    public Builder withName(String name){
+        newPet.name = name;
+        return this;
+    }
+    public Builder withWeight(double weight){
+        newPet.weight = weight;
+        return this;
+    }
+    public Builder withEyes(String eyes){
+        newPet.eyes = eyes;
+        return this;
+    }
+    public Builder withAge(int age){
+        newPet.age = age;
+        return this;
+    }
+    public Builder withColor(String color){
+        newPet.color = color;
+        return this;
+    }
+    public Builder withLength(double length){
+        newPet.length = length;
+        return this;
+    }
+    public Builder withHeight(double height){
+        newPet.height = height;
+        return this;
+    }
+}
 }
